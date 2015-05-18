@@ -19,7 +19,6 @@ class Proxy
   end
 
   def method_missing(method_name, *args, &block)
-    puts "Called: #{method_name} with args #{args} and block #{block}"
     @message_count[method_name] += 1
     @object.send(method_name, *args, &block)
   end
